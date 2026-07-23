@@ -1,0 +1,534 @@
+/* =========================================================
+   Khotso Kenneth Khanye — Portfolio
+   Tokens: navy ink + warm amber "insight" accent
+   Display: Space Grotesk | Body: Inter
+   ========================================================= */
+
+:root {
+    --bg: #F7F8FB;
+    --bg-alt: #EEF1F7;
+    --card: #FFFFFF;
+    --navy: #16233F;
+    --navy-deep: #0F1B33;
+    --slate: #5B6B82;
+    --slate-light: #8593A8;
+    --accent: #C9922E;
+    --accent-soft: #E8C77A;
+    --border: #E1E5EE;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --max-width: 1080px;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(15, 27, 51, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--navy);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: var(--font-display);
+    color: var(--navy);
+    margin: 0;
+}
+
+p {
+    margin: 0 0 1rem 0;
+    color: var(--slate);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------- Layout helpers ---------- */
+
+.section {
+    padding: 5rem 1.5rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.section-alt {
+    max-width: none;
+    background: var(--bg-alt);
+}
+
+.section-alt > * {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 46px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 27, 51, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #C7D0E0;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--accent-soft);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: #FFFFFF;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    padding: 6rem 1.5rem 5rem;
+    text-align: center;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(201, 146, 46, 0.10) 0, transparent 45%),
+        radial-gradient(circle at 82% 12%, rgba(22, 35, 63, 0.06) 0, transparent 40%),
+        var(--bg);
+}
+
+.hero-content {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.profile-pic {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.75rem;
+    border: 4px solid var(--card);
+    box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow);
+}
+
+.hero h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+.hero h2 {
+    margin-top: 0.6rem;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--slate);
+    letter-spacing: 0.02em;
+}
+
+.hero p {
+    margin-top: 1.5rem;
+    font-size: 0.98rem;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.btn-primary {
+    background: var(--navy);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: var(--navy-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 27, 51, 0.25);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ---------- Resume ---------- */
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.resume-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+}
+
+.resume-block h3 {
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+}
+
+.resume-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.resume-date {
+    display: inline-block;
+    margin: 0.3rem 0 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.resume-item p {
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+/* ---------- Projects ---------- */
+
+.project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: var(--bg-alt);
+}
+
+.project-info {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    font-size: 0.94rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.project-tags span {
+    background: var(--bg-alt);
+    color: var(--navy);
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+}
+
+.project-links a {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+    border-bottom: 1.5px solid var(--accent-soft);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.project-links a:hover {
+    color: var(--navy);
+    border-color: var(--navy);
+}
+
+/* ---------- Skills ---------- */
+
+.skills-category {
+    margin-bottom: 2.5rem;
+}
+
+.skills-category:last-child {
+    margin-bottom: 0;
+}
+
+.skills-category h3 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--slate);
+    margin-bottom: 1.25rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 2.5rem;
+}
+
+.skill-item span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.45rem;
+}
+
+.bar {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--bg-alt);
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--accent) 100%);
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Contact ---------- */
+
+.contact-content {
+    text-align: center;
+}
+
+.contact-content p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.contact-links a:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    background: var(--navy-deep);
+    color: var(--slate-light);
+    text-align: center;
+    padding: 1.75rem 1.5rem;
+    font-size: 0.85rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card img {
+        height: 200px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--navy-deep);
+        padding: 1rem 1.5rem;
+        gap: 1.1rem;
+        transform: translateY(-8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
