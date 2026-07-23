@@ -7,9 +7,13 @@
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     </head>
     <body>
+
+        <!--Scroll progress indicator-->
+        <div class="scroll-progress" id="scrollProgress"></div>
+
 
         <!--Navbar-->
         <header class="navbar">
@@ -33,7 +37,13 @@
             <div class="hero-content">
                 <img src="assets/profile.jpg" alt="Khotso Kenneth Khanye" class="profile-pic">
                 <h1>Hi, I'm <span class="highlight">Khotso Kenneth Khanye</span></h1>
-                <h2>Final Year Information Technology Student</h2>
+                <div class="terminal-badge">
+                    <span class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <span class="terminal-line">
+                        <span class="prompt">guest@portfolio:~$</span>
+                        <span id="typedRole" class="typed">Final Year IT Student</span><span class="caret" aria-hidden="true">▍</span>
+                    </span>
+                </div>
                 <p>
                     I am Khotso Kenneth Khanye, I'm currently a Final Year student at the North-West University Vanderbijlpark Campus studying BSc Information Technology. I am passionate about leveraging data to drive meaningful insights and business decisions. With a strong interest in Data Science, Business Analysis, and Data Analytics, I am pursuing opportunities that allow me to apply analytical thinking, problem-solving, and data-driven strategies to real-world challenges. My goal is to contribute to organizations by transforming complex data into actionable solutions that enhance efficiency, innovation, and growth.
                 </p>
@@ -46,6 +56,7 @@
 
         <!--Resume/CV Summary-->
         <section id="resume" class="section">
+            <span class="eyebrow">~/resume</span>
             <h2 class="section-title">Resume</h2>
             <div class="resume-grid">
                 <div class="resume-block">
@@ -69,6 +80,7 @@
 
         <!--Projects-->
         <section id="projects" class="section section-alt">
+            <span class="eyebrow">~/projects</span>
             <h2 class="section-title">Projects</h2>
             <div class="project-card">
                 <img src="assets/project2.png" alt="This Portfolio Site">
@@ -87,6 +99,7 @@
 
         <!--Skills-->
         <section id="skills" class="section">
+            <span class="eyebrow">~/skills</span>
             <h2 class="section-title">Skills</h2>
 
             <div class="skills-category">
@@ -130,6 +143,7 @@
 
         <!--Contact-->
         <section id="contact" class="section section-alt">
+            <span class="eyebrow">~/contact</span>
             <h2 class="section-title">Contact</h2>
             <div class="contact-content">
                 <p>Interested in working together or have a question? Reach out.</p>
