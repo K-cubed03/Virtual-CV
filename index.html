@@ -11,6 +11,18 @@
     </head>
     <body>
 
+        <!--Loading spinner-->
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+        </div>
+
+        <!--Ambient parallax background orbs-->
+        <div class="ambient-bg" id="ambientBg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+
         <!--Scroll progress indicator-->
         <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -28,6 +40,9 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
+                </button>
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
             </div>
         </header>
@@ -35,7 +50,9 @@
         <!--Hero/About-->
         <section id="about" class="hero">
             <div class="hero-content">
-                <img src="assets/profile.jpg" alt="Khotso Kenneth Khanye" class="profile-pic">
+                <div class="profile-wrapper">
+                    <img src="assets/profile.jpg" alt="Khotso Kenneth Khanye" class="profile-pic">
+                </div>
                 <h1>Hi, I'm <span class="highlight">Khotso Kenneth Khanye</span></h1>
                 <div class="terminal-badge">
                     <span class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -56,7 +73,6 @@
 
         <!--Resume/CV Summary-->
         <section id="resume" class="section">
-            <span class="eyebrow">~/resume</span>
             <h2 class="section-title">Resume</h2>
             <div class="resume-grid">
                 <div class="resume-block">
@@ -80,7 +96,6 @@
 
         <!--Projects-->
         <section id="projects" class="section section-alt">
-            <span class="eyebrow">~/projects</span>
             <h2 class="section-title">Projects</h2>
             <div class="project-card">
                 <img src="assets/project2.png" alt="This Portfolio Site">
@@ -92,6 +107,7 @@
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/K-cubed03/Virtual-CV.git" target="_blank" rel="noopener">GitHub</a>
+                        <button class="project-view-btn" type="button">View Details</button>
                     </div>
 
                 </div>
@@ -108,6 +124,7 @@
                     <div class="project-links">
                         <a href="https://github.com/K-cubed03/Weather-Dashboard.git" target="_blank" rel="noopener">GitHub</a>
                         <a href="https://k-cubed03.github.io/Weather-Dashboard/" target="_blank" rel="noopener">Live Demo</a>
+                        <button class="project-view-btn" type="button">View Details</button>
                     </div>
                 </div>
             </div>
@@ -123,14 +140,28 @@
                     <div class="project-links">
                         <a href="https://github.com/K-cubed03/Interactive-Quiz-App.git" target="_blank" rel="noopener">GitHub</a>
                         <a href="https://k-cubed03.github.io/Interactive-Quiz-App/" target="_blank" rel="noopener">Live Demo</a>
+                        <button class="project-view-btn" type="button">View Details</button>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!--Project Details Modal-->
+        <div class="modal-overlay" id="projectModal" aria-hidden="true">
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <button class="modal-close" id="modalClose" aria-label="Close project details">&times;</button>
+                <img id="modalImage" src="" alt="">
+                <div class="modal-body">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
+                    <div class="project-tags" id="modalTags"></div>
+                    <div class="project-links" id="modalLinks"></div>
+                </div>
+            </div>
+        </div>
+
         <!--Skills-->
         <section id="skills" class="section">
-            <span class="eyebrow">~/skills</span>
             <h2 class="section-title">Skills</h2>
 
             <div class="skills-category">
@@ -174,7 +205,6 @@
 
         <!--Contact-->
         <section id="contact" class="section section-alt">
-            <span class="eyebrow">~/contact</span>
             <h2 class="section-title">Contact</h2>
             <div class="contact-content">
                 <p>Interested in working together or have a question? Reach out.</p>
@@ -183,6 +213,26 @@
                     <a href="https://www.linkedin.com/in/khotso-kenneth-khanye-0a96242a5/" target="_blank" rel="noopener">💼 LinkedIn</a>
                     <a href="https://github.com/K-cubed03" target="_blank" rel="noopener">💻 GitHub</a>
                 </div>
+
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="cf-name">Name</label>
+                        <input type="text" id="cf-name" name="name" autocomplete="name">
+                        <span class="form-error" id="cf-name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-email">Email</label>
+                        <input type="email" id="cf-email" name="email" autocomplete="email">
+                        <span class="form-error" id="cf-email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-message">Message</label>
+                        <textarea id="cf-message" name="message" rows="5"></textarea>
+                        <span class="form-error" id="cf-message-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                </form>
             </div>
         </section>
 
