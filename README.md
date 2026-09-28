@@ -2,7 +2,7 @@
  
 A personal portfolio website built from scratch with HTML, CSS, and JavaScript — no frameworks, no build step.
  
-🔗 **Live site:** `https://<your-username>.github.io/<repo-name>/`
+🔗 **Live site:** `https://k-cubed03.github.io/Virtual-CV/`
  
 ## About
  
