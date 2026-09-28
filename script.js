@@ -66,7 +66,7 @@ navLinks.querySelectorAll("a").forEach((link) => {
 
 // ---------- Scroll-reveal for sections ----------
 const revealTargets = document.querySelectorAll(
-    ".resume-block, .project-card, .skills-category, .contact-content, .contact-links a"
+    ".resume-block, .project-card, .skills-category, .cert-card, .contact-content, .contact-links a"
 );
 
 if ("IntersectionObserver" in window) {
